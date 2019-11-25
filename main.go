@@ -38,10 +38,7 @@ var (
 
 	columnCount int64
 	rowCount    int64
-
-	durasi time.Time
 	
-	f *os.File
 	counterFile *os.File
 	counterQualFile *os.File
 	
@@ -104,9 +101,6 @@ func getCounterQualTableName() string {
 
 func main() {
 
-	f, _ = os.OpenFile("logs.txt", os.O_APPEND | os.O_CREATE | os.O_WRONLY, 0644)
-	defer f.Close()
-
 	if truncate {
 		dbBench := sqlx.MustConnect("postgres", getConnectString())
 		
@@ -123,6 +117,7 @@ func main() {
 	}
 
 	//BEGIN COUNTER TABLE
+	fmt.Println("Start processing counter")
 	var scanner *bufio.Scanner
 	if len(counterFileName) > 0 {
 		counterFile, err = os.Open(counterFileName)
@@ -163,13 +158,16 @@ func main() {
 		res += fmt.Sprintf(", took %v with %d worker(s) (mean rate %f/sec)", took, workers, rowRate)
 	}
 	fmt.Println(res)
+	fmt.Println("Counter has been processed")
 	//END COUNTER TABLE
 	
 	
 	
 	//BEGIN COUNTER QUAL TABLE
+	fmt.Println("Start processing counter qual")
 	var qualScanner *bufio.Scanner
 	if len(counterQualFileName) > 0 {
+		fmt.Println("Qual File Name : " + counterQualFileName)
 		counterQualFile, err = os.Open(counterQualFileName)
 		if err != nil {
 			log.Fatal(err)
@@ -190,11 +188,6 @@ func main() {
 		go processQual(&qualWg, qualBatchChan)
 	}
 
-	// Reporting thread
-	if reportingPeriod > (0 * time.Second) {
-		go report()
-	}
-
 	start = time.Now()
 	rowsRead = scan(batchSize, qualScanner, qualBatchChan)
 	close(qualBatchChan)
@@ -208,6 +201,7 @@ func main() {
 		res += fmt.Sprintf(", took %v with %d worker(s) (mean rate %f/sec)", took, workers, rowRate)
 	}
 	fmt.Println(res)
+	fmt.Println("Counter qual has been processed")
 	//END COUNTER QUAL TABLE
 	
 	
@@ -216,6 +210,7 @@ func main() {
 	dbBench := sqlx.MustConnect("postgres", getConnectString())
 	defer dbBench.Close()
 	
+	/*
 	//insert into last day table
 	dbBench.MustExec(`insert into counter_2g_lastday
 	select a.resulttime, a.unique_id, a.mbsc, a.cellname, a.cellindex, a.lac, a.ci,
@@ -237,7 +232,7 @@ func main() {
 	dbBench.MustExec("TRUNCATE counter_2g_qual_temp")
 	dbBench.MustExec("TRUNCATE counter_2g_temp")
 	dbBench.MustExec("TRUNCATE counter_2g_lastday")
-	
+	*/
 	endMoving := time.Now()
 	movingDuration := endMoving.Sub(startMoving)
 	fmt.Println(fmt.Sprintf("Data has been moved successfully in %v seconds)", movingDuration))
@@ -329,7 +324,7 @@ func processBatches(wg *sync.WaitGroup, C chan *batch) {
 			sp := strings.Split(line, sChar)
 			
 			//fmt.Printf("%v \n\n", sp)
-			fmt.Println(sp[0])
+			//fmt.Println(sp[0])
 
 			var unique_id = sp[3] + sp[4]
 			slice_1 := make([]string, 2)
@@ -340,10 +335,6 @@ func processBatches(wg *sync.WaitGroup, C chan *batch) {
 			new_sp := append(slice_1, slice_2...)
 			
 			finalCommand := strings.Join(new_sp, ",")
-			
-			if _, err = f.WriteString(finalCommand + "\n+++++++++++++++++++++++++++++++++++++++++++++++++\n"); err != nil {
-				log.Println(err)
-			}
 
 			columnCountWorker += int64(len(new_sp))
 			// For some reason this is only needed for tab splitting
@@ -430,10 +421,8 @@ func processQual(wg *sync.WaitGroup, C chan *batch) {
 			new_sp := append(slice_1, slice_2...)
 			
 			finalCommand := strings.Join(new_sp, ",")
-			
-			if _, err = f.WriteString(finalCommand + "\n+++++++++++++++++++++++++++++++++++++++++++++++++\n"); err != nil {
-				log.Println(err)
-			}
+			//fmt.Println(fmt.Sprintf("Column length : %d", len(sp)))
+			fmt.Println(finalCommand)
 
 			columnCountWorker += int64(len(new_sp))
 			// For some reason this is only needed for tab splitting
