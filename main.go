@@ -216,7 +216,7 @@ func main() {
 	select a.resulttime, a.unique_id, a.mbsc, a.cellname, a.cellindex, a.lac, a.ci,
 	a.rr307, a.rr300, a.ar3010a, a.ar3010b, a.ar3017a, a.ar3017b, a.ar3018a, a.ar3018b, a.ar3020a, a.ar3020b, a.ar3027a, a.ar3027b, a.ar3028a, a.ar3028b, a.ch303, a.ch301, a.ch300, a.m3128, a.m3128a, a.m3030a, a.m3030b, a.m3030c, a.m3030d, a.m3030e, a.m3030f, a.m3030g, a.m3030h, a.m3030i, a.m3030j, a.m3030k, a.a330, a.a331, a.a337, a.a339, a.k3021, a.k3011a, a.k3011b, a.k3020, a.k3010a, a.k3010b, a.ch313, a.ch333, a.ch311, a.ch331, a.k3003, a.cm30, a.k3000, a.cm33, a.m315, a.m325, a.k3013a, a.ch323, a.ch343, a.k3014, a.ca303j, a.ca300j, a.ca313, a.ca310, a.k3001, a.k3004, a.ch321, a.k3005, a.k3006, a.k3015, a.k3016, a.r373, a.ch341, a.ca3030j, a.k3034, a.ar9303, a.k3023, a.cm3300, a.cm3301, a.cm3302, a.cm330, a.cm331, a.cm332, a.cm333, a.cm334, a.cm335, a.m305, a.m345, a.m355, a.ch342, a.h3429a, a.th343, a.ch340, a.ch322, a.h3229a, a.th323, a.ch320, a.k3040, a.ch330, a.ch310, a.l9302, a.l9303, a.l9304, a.l9305, a.l9306, a.l9307, a.l9308, a.l9309, a.l9310, a.a9002, a.a9001, a.a9102, a.a9101, a.a9202, a.a9201, a.a9302, a.a9301, a.l9201, a.l9202, a.l9203, a.l9204, a.l9205, a.l9206, a.l9207, a.l9208, a.l9209, a.l9001, a.l9002, a.l9003, a.l9004, a.l9005, a.l9006, a.l9007, a.l9008, a.l9009, a.l9102, a.l9103, a.l9104, a.l9105, a.l9210, a.a9006, a.a9007, a.a9206, a.a9207, a.a9106, a.a9306, a.r9204, a.r9205, a.r9206, a.r9207, a.a9003, a.a9005, a.a9103, a.a9105, a.a9203, a.a9303, a.a9305, a.a9205, a.a9501, a.a9507, a.tl9014, a.tl9114, a.tl9232, a.tl9333, a.a9104, a.a9304, a.a9315, a.a9115, a.a9210, a.a9010, a.a9109, a.a9309, a.a9209, a.a9009, a.a9108, a.a9308, a.a9307, a.a9107, a.a9008, a.a9208, a.l9211, a.l9212, a.l9213, a.l9214, a.l9215, a.l9216, a.l9217, a.l9218, a.l9219, a.l9311, a.l9312, a.l9313, a.l9314, a.l9315, a.l9316, a.l9317, a.l9318, a.l9319, a.l9106, a.l9107, a.l9108, a.l9109, a.tl9338, a.tl9123, a.tl9237, a.tl9023, a.a9318, a.a9118, a.a9004, a.cm30a, a.cm30c, a.cm30d, a.m3000a, a.m3000b, a.m3000c, a.m3001a, a.m3001b, a.m3001c, a.m3001d, a.m3001e, a.m3002, a.m302, a.m303, a.m304, a.m3100a, a.m3100b, a.m3100c, a.m3101a, a.m3101b, a.m3101c, a.m3101d, a.m3101e, a.m3102, a.m312, a.m313, a.m314, a.m3200a, a.m3200b, a.m3200c, a.m3201a, a.m3201b, a.m3201c, a.m3201d, a.m3201e, a.m3202, a.m322, a.m323, a.m324, a.a300a, a.a300c, a.a300d, a.a300e, a.a300f, a.a300k, a.a3010, a.a3030a, a.a3030b, a.a3030c, a.a3030d, a.a3030e, a.a3030f, a.a3030g, a.a3030h, a.a3030i, a.a3030j, a.a3030k, a.a3039j, a.a3040, a.a9204, a.a9237, a.a9238, a.a9335, a.a9336, a.h3027ca, a.h3028ca, a.h3127ca, a.h3128ca, a.h3327ca, a.h3328ca, a.h3429ca, a.k3013b, a.r3100a, a.r9101, a.r9109, a.r9110, a.r9111, a.r9112, a.r9115, a.cm3303a, a.a9216, a.a9016, a.a9341, a.a9343, a.payload_gprs_mbit, a.payload_edge_mbit, a.payload_gprs_mbyte, a.payload_edge_mbyte, b.cr443a, b.cr443b, b.r4419a, b.r4419b, b.cs410a, b.cs410b, b.cs410c, b.cs410d, b.cs411a, b.cs411b, b.cs411c, b.cs411d, b.cs412a, b.cs412b, b.cs412c, b.cs412d, b.cs413a, b.cs413b, b.cs413c, b.cs413d, b.cs414a, b.cs414b, b.cs414c, b.cs414d, b.cs415a, b.cs415b, b.cs415c, b.cs415d, b.cs416a, b.cs416b, b.cs416c, b.cs416d, b.cs417a, b.cs417b, b.cs417c, b.cs417d, b.as4207a, b.as4207b, b.as4207c, b.as4207d, b.as4207e, b.as4208a, b.as4208b, b.as4208c, b.as4208d, b.as4208e, b.s4556, b.s4557, b.s4400a, b.s4401a, b.s4402a, b.s4403a, b.s4404a, b.s4405a, b.s4406a, b.s4407a, b.s4408a, b.s4409a, b.s4410a, b.s4411a, b.s4412a, b.s4413a, b.s4414a, b.s4415a, b.s4416a, b.s4417a, b.s4418a, b.s4419a, b.s4420a, b.s4421a, b.s4422a, b.s4423a, b.s4424a, b.s4425a, b.s4426a, b.s4427a, b.s4428a, b.s4429a, b.s4430a, b.s4432a, b.s4434a, b.s4436a, b.s4438a, b.s4440a, b.s4445a, b.s4450a, b.s4455a, b.s4463a
 	from counter_2g_temp a
-	inner join counter_2g_qual_temp b on a.ci=b.ci and a.resulttime=b.resulttime
+	inner join counter_2g_qual_temp b on a.unique_id=b.unique_id and a.resulttime=b.resulttime
 	on conflict do nothing;`)
 	
 	fmt.Println("Insert data : counter_2g_hourly")
@@ -230,13 +230,13 @@ func main() {
 	on conflict do nothing;`)
 	
 	fmt.Println("Truncate data : counter_2g_qual_temp")
-	dbBench.MustExec("TRUNCATE counter_2g_qual_temp")
+	dbBench.MustExec("TRUNCATE counter_2g_qual_temp;")
 	
 	fmt.Println("Truncate data : counter_2g_temp")
-	dbBench.MustExec("TRUNCATE counter_2g_temp")
+	dbBench.MustExec("TRUNCATE counter_2g_temp;")
 	
 	fmt.Println("Truncate data : counter_2g_lastday")
-	dbBench.MustExec("TRUNCATE counter_2g_lastday")
+	dbBench.MustExec("TRUNCATE counter_2g_lastday;")
 
 	endMoving := time.Now()
 	movingDuration := endMoving.Sub(startMoving)
@@ -331,7 +331,7 @@ func processBatches(wg *sync.WaitGroup, C chan *batch) {
 			//fmt.Printf("%v \n\n", sp)
 			//fmt.Println(sp[0])
 
-			var unique_id = sp[3] + sp[4]
+			var unique_id = sp[4] + sp[5]
 			slice_1 := make([]string, 2)
 			slice_1[0] = sp[0]
 			slice_1[1] = unique_id
@@ -419,7 +419,7 @@ func processQual(wg *sync.WaitGroup, C chan *batch) {
 			row = row + 1
 			sp := strings.Split(line, sChar)
 
-			var unique_id = sp[3] + sp[4]
+			var unique_id = sp[4] + sp[5]
 			slice_1 := make([]string, 2)
 			slice_1[0] = sp[0]
 			slice_1[1] = unique_id
